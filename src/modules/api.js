@@ -1,7 +1,7 @@
 const weatherURL = 'http://api.weatherapi.com/v1/current.json?key=32832b2586e74bf3be920337230607&q=';
 let location = 'seattle';
 
-const getWeather = async () => {
+const fetchWeather = async () => {
     try {
         const weather = await fetch(weatherURL + location, { mode: 'cors' });
 
@@ -29,11 +29,10 @@ const getLocation = () => {
 };
 
 
-
-
+//Refactor/Rename  or move to dom.js
 const displayWeather = async () => {
     //const location = await getLocation()
-    getWeather();
+    await fetchWeather();
 };
 
 
