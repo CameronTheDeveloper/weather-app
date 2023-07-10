@@ -11,12 +11,20 @@ const getWeather = async () => {
         return weatherData;
     }
     catch (e) {
-        console.log('Weather Error');
+        console.log('Weather Error', e);
     }
-
-
 };
 
-const getLocation = async () => {
-
+//Check syntax
+const getLocation = () => {
+    return new fetch('')
+        .then((data) => {
+            return data.json();
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((e) => {
+            console.log('Location Error', e);
+        });
 };
