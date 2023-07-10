@@ -15,7 +15,7 @@ const getLocationInput = () => {
         setTimeout(() => {
             const newLocation = locationInput.value;
             resolve(newLocation);
-        }, 500);
+        }, 200);
     })
         .then((newLocation) => {
             setLocation(newLocation);
@@ -27,9 +27,15 @@ const getLocationInput = () => {
         });
 };
 
+const manageLocationInput = async () => {
+    const newLocation = await getLocationInput();
+    console.log(newLocation);
+};
+
 const registerLocationSubmit = () => {
     weatherForm.addEventListener('submit', (event) => {
         event.preventDefault();
+        manageLocationInput();
     });
 };
 
