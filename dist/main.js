@@ -16,17 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/api */ \"./src/modules/api.js\");\n/* harmony import */ var _modules_operate_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/operate.js */ \"./src/modules/operate.js\");\n\n\n\nconst initPage = () => {\n    (0,_modules_api__WEBPACK_IMPORTED_MODULE_0__.displayWeather)();\n\n};\n\n(0,_modules_operate_js__WEBPACK_IMPORTED_MODULE_1__.initApp)();\ninitPage();\n\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/modules/api.js":
-/*!****************************!*\
-  !*** ./src/modules/api.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   displayWeather: () => (/* binding */ displayWeather)\n/* harmony export */ });\nconst weatherURL = 'http://api.weatherapi.com/v1/current.json?key=32832b2586e74bf3be920337230607&q=';\nlet location = 'seattle';\n\nconst getWeather = async () => {\n    try {\n        const weather = await fetch(weatherURL + location, { mode: 'cors' });\n\n        const weatherData = await weather.json();\n        console.log(weatherData);\n        return weatherData;\n    }\n    catch (e) {\n        console.log(e);\n    }\n};\n\n//Check syntax\nconst getLocation = () => {\n    return new fetch('')\n        .then((data) => {\n            return data.json();\n        })\n        .then((data) => {\n            console.log(data);\n        })\n        .catch((e) => {\n            console.log('Location Error', e);\n        });\n};\n\n\n\n\nconst displayWeather = async () => {\n    //const location = await getLocation()\n    getWeather();\n};\n\n\n\n\n//# sourceURL=webpack:///./src/modules/api.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_operate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/operate.js */ \"./src/modules/operate.js\");\n\n\n(0,_modules_operate_js__WEBPACK_IMPORTED_MODULE_0__.initApp)();\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

@@ -10,7 +10,7 @@ const fetchWeather = async () => {
         return weatherData;
     }
     catch (e) {
-        console.log(e);
+        console.log('Error fetching weather: ', e);
     }
 };
 
@@ -28,12 +28,7 @@ const getLocation = () => {
         });
 };
 
-
-//Refactor/Rename  or move to dom.js
-const displayWeather = async () => {
+const manageWeatherData = async () => {
     //const location = await getLocation()
     await fetchWeather();
 };
-
-
-export { displayWeather };
