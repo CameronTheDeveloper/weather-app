@@ -1,7 +1,7 @@
-
+const weatherURL = 'http://api.weatherapi.com/v1/current.json?key=32832b2586e74bf3be920337230607&q=london';
 const getWeather = async () => {
     try {
-        const weather = await fetch('', { mode: 'cors' });
+        const weather = await fetch(weatherURL, { mode: 'cors' });
 
         const weatherData = await weather.json();
         // if (weatherData === rain){
@@ -28,3 +28,10 @@ const getLocation = () => {
             console.log('Location Error', e);
         });
 };
+
+const displayWeather = async () => {
+    //const location = await getLocation()
+    getWeather();
+};
+
+export { displayWeather };
