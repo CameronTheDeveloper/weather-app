@@ -14,20 +14,6 @@ const fetchWeather = async () => {
     }
 };
 
-//Check syntax
-const getLocation = () => {
-    return new fetch('')
-        .then((data) => {
-            return data.json();
-        })
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((e) => {
-            console.log('Location Error', e);
-        });
-};
-
 const manageWeatherData = async () => {
     //const location = await getLocation()
     await fetchWeather();
