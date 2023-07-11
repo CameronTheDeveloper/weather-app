@@ -1,3 +1,5 @@
+import { manageWeatherData } from "./api";
+
 const weatherForm = document.querySelector('#weather-form');
 const locationInput = document.querySelector('#location-input');
 let location = 'london';
@@ -6,7 +8,7 @@ const setLocation = (newLocation) => {
     location = newLocation;
 };
 
-const getLocation = async () => {
+const getLocation = () => {
     return location;
 };
 
@@ -29,7 +31,7 @@ const getLocationInput = () => {
 
 const manageLocationInput = async () => {
     const newLocation = await getLocationInput();
-    console.log(newLocation);
+    manageWeatherData();
 };
 
 const registerLocationSubmit = () => {

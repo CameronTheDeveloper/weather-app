@@ -20,6 +20,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 
 /***/ }),
 
+/***/ "./src/modules/api.js":
+/*!****************************!*\
+  !*** ./src/modules/api.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   manageWeatherData: () => (/* binding */ manageWeatherData)\n/* harmony export */ });\n/* harmony import */ var _user_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user-input */ \"./src/modules/user-input.js\");\n\n\nconst weatherURL = 'http://api.weatherapi.com/v1/current.json?key=32832b2586e74bf3be920337230607&q=';\n\nconst fetchWeather = async (location) => {\n    try {\n        const weather = await fetch(weatherURL + location, { mode: 'cors' });\n\n        const weatherData = await weather.json();\n        console.log(location);\n        return weatherData;\n    }\n    catch (e) {\n        console.log('Error fetching weather: ', e);\n        throw e;\n    }\n};\n\nconst manageWeatherData = async () => {\n    const location = (0,_user_input__WEBPACK_IMPORTED_MODULE_0__.getLocation)();\n    const weatherData = await fetchWeather(location);\n    console.log(weatherData);\n    //Process weatherData json\n\n};\n\n\n\n\n//# sourceURL=webpack:///./src/modules/api.js?");
+
+/***/ }),
+
 /***/ "./src/modules/operate.js":
 /*!********************************!*\
   !*** ./src/modules/operate.js ***!
@@ -36,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getLocation: () => (/* binding */ getLocation),\n/* harmony export */   registerLocationSubmit: () => (/* binding */ registerLocationSubmit)\n/* harmony export */ });\nconst weatherForm = document.querySelector('#weather-form');\nconst locationInput = document.querySelector('#location-input');\nlet location = 'london';\n\nconst setLocation = (newLocation) => {\n    location = newLocation;\n};\n\nconst getLocation = async () => {\n    return location;\n};\n\nconst getLocationInput = () => {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            const newLocation = locationInput.value;\n            resolve(newLocation);\n        }, 200);\n    })\n        .then((newLocation) => {\n            setLocation(newLocation);\n            return newLocation;\n        })\n        .catch((e) => {\n            console.log('Location Input Error: ', e);\n            throw e;\n        });\n};\n\nconst manageLocationInput = async () => {\n    const newLocation = await getLocationInput();\n    console.log(newLocation);\n};\n\nconst registerLocationSubmit = () => {\n    weatherForm.addEventListener('submit', (event) => {\n        event.preventDefault();\n        manageLocationInput();\n    });\n};\n\n\n\n//# sourceURL=webpack:///./src/modules/user-input.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getLocation: () => (/* binding */ getLocation),\n/* harmony export */   registerLocationSubmit: () => (/* binding */ registerLocationSubmit)\n/* harmony export */ });\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ \"./src/modules/api.js\");\n\n\nconst weatherForm = document.querySelector('#weather-form');\nconst locationInput = document.querySelector('#location-input');\nlet location = 'london';\n\nconst setLocation = (newLocation) => {\n    location = newLocation;\n};\n\nconst getLocation = () => {\n    return location;\n};\n\nconst getLocationInput = () => {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            const newLocation = locationInput.value;\n            resolve(newLocation);\n        }, 200);\n    })\n        .then((newLocation) => {\n            setLocation(newLocation);\n            return newLocation;\n        })\n        .catch((e) => {\n            console.log('Location Input Error: ', e);\n            throw e;\n        });\n};\n\nconst manageLocationInput = async () => {\n    const newLocation = await getLocationInput();\n    (0,_api__WEBPACK_IMPORTED_MODULE_0__.manageWeatherData)();\n};\n\nconst registerLocationSubmit = () => {\n    weatherForm.addEventListener('submit', (event) => {\n        event.preventDefault();\n        manageLocationInput();\n    });\n};\n\n\n\n//# sourceURL=webpack:///./src/modules/user-input.js?");
 
 /***/ })
 
