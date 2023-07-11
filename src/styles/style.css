@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif
+}
+
+#container {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+#header {
+    background-color: rgb(151, 151, 255);
+}
