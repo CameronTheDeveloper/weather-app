@@ -12,6 +12,16 @@ const getTempF = async (weatherData) => {
     }
 };
 
+const getCondition = async (weatherData) => {
+    try {
+        const condition = weatherData.current.condition;
+        return condition;
+    } catch (e) {
+        console.log('Error getting condition: ', e);
+        throw (e);
+    }
+};
+
 const fetchWeather = async (location) => {
     try {
         const weather = await fetch(weatherURL + location, { mode: 'cors' });
@@ -29,6 +39,7 @@ const manageWeatherData = async () => {
     const location = getLocation();
     const weatherData = await fetchWeather(location);
     const tempF = await getTempF(weatherData);
+    const condition = await getCondition(weatherData);
     //Process weatherData json
 
 };
