@@ -23,7 +23,7 @@ const getCondition = async (weatherData) => {
     }
 };
 
-const fetchWeather = async (location) => {
+const fetchForecast = async (location) => {
     try {
         const weather = await fetch(weatherURL + location, { mode: 'cors' });
 
@@ -38,7 +38,7 @@ const fetchWeather = async (location) => {
 
 const manageWeatherData = async () => {
     const location = getLocation();
-    const weatherData = await fetchWeather(location);
+    const weatherData = await fetchForecast(location);
     const tempF = await getTempF(weatherData);
     const condition = await getCondition(weatherData);
     console.log(condition);
