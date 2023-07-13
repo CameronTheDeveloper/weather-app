@@ -1,4 +1,5 @@
 import { getLocation } from "./user-input";
+import { displayWeather } from "./dom";
 
 const weatherURL = 'http://api.weatherapi.com/v1/current.json?key=32832b2586e74bf3be920337230607&q=';
 
@@ -41,6 +42,7 @@ const manageWeatherData = async () => {
     const tempF = await getTempF(weatherData);
     const condition = await getCondition(weatherData);
     //Process weatherData json
+    displayWeather(tempF);
 
 };
 
