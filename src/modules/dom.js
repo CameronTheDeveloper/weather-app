@@ -1,7 +1,15 @@
 const weatherSlot1 = document.querySelector('#weather-slot1');
 
-const displayWeather = (tempF) => {
+const displayTempF = (tempF) => {
     weatherSlot1.innerHTML = tempF;
 };
 
-export { displayWeather };
+const displayWeather = () => {
+
+};
+
+const displayForecast = (tempF) => {
+    displayTempF(tempF);
+};
+
+export { displayForecast };
