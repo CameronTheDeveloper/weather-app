@@ -1,15 +1,19 @@
-const weatherSlot1 = document.querySelector('#weather-slot1');
+// const weatherSlot1 = document.querySelector('#weather-slot1');
+const weatherSlots = document.querySelectorAll('.weather-slot');
 
-const displayTempF = (tempF) => {
-    weatherSlot1.innerHTML = tempF;
+const displayTempF = (tempF, slot) => {
+    const tempSlot = slot.querySelector('.temp');
+    tempSlot.innerHTML = tempF;
 };
 
 const displayWeather = () => {
-
+    //Rain/Fog/etc.
 };
 
 const displayForecast = (tempF) => {
-    displayTempF(tempF);
+    weatherSlots.forEach((slot) => {
+        displayTempF(tempF, slot);
+    });
 };
 
 export { displayForecast };

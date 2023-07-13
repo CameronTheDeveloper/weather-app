@@ -136,7 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   displayForecast: () => (/* binding */ displayForecast)\n/* harmony export */ });\nconst weatherSlot1 = document.querySelector('#weather-slot1');\n\nconst displayTempF = (tempF) => {\n    weatherSlot1.innerHTML = tempF;\n};\n\nconst displayWeather = () => {\n\n};\n\nconst displayForecast = (tempF) => {\n    displayTempF(tempF);\n};\n\n\n\n//# sourceURL=webpack:///./src/modules/dom.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   displayForecast: () => (/* binding */ displayForecast)\n/* harmony export */ });\n// const weatherSlot1 = document.querySelector('#weather-slot1');\nconst weatherSlots = document.querySelectorAll('.weather-slot');\n\nconst displayTempF = (tempF, slot) => {\n    const tempSlot = slot.querySelector('.temp');\n    tempSlot.innerHTML = tempF;\n};\n\nconst displayWeather = () => {\n    //Rain/Fog/etc.\n};\n\nconst displayForecast = (tempF) => {\n    weatherSlots.forEach((slot) => {\n        displayTempF(tempF, slot);\n    });\n};\n\n\n\n//# sourceURL=webpack:///./src/modules/dom.js?");
 
 /***/ }),
 
