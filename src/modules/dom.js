@@ -6,12 +6,14 @@ const displayTempF = (tempF, slot) => {
     tempSlot.innerHTML = tempF;
 };
 
-const displayWeather = () => {
-    //Rain/Fog/etc.
+const displayWeather = (weather, slot) => {
+    const tempSlot = slot.querySelector('.weather');
+    tempSlot.innerHTML = weather;
 };
 
-const displayForecast = (tempF) => {
+const displayForecast = (tempF, condition) => {
     weatherSlots.forEach((slot) => {
+        displayWeather(condition.text, slot);
         displayTempF(tempF, slot);
     });
 };

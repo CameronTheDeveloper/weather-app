@@ -42,7 +42,8 @@ const manageWeatherData = async () => {
     const tempF = await getTempF(weatherData);
     const condition = await getCondition(weatherData);
     console.log(condition);
-    displayForecast(tempF);
+    console.log(condition.text);    // = weather (rainy/snow/cloudy/etc.)
+    displayForecast(tempF, condition);     //Also pass condition
 
 };
 
